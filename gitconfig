@@ -1,0 +1,23 @@
+[push]
+  default = current
+[user]
+  name = Sundeep Peswani
+  email = sundeep@sundeeppeswani.com
+[alias]
+  co = checkout
+  cob = checkout -b
+  cm = commit -m
+  d = diff --ignore-all-space
+  db = "!db() { git diff HEAD~$1 ; }; db"
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  ls = log --pretty=format:'%Cred%h%Creset %Cgreen%ad%Creset %C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset' --decorate --date=short
+  s = status
+  up = "!git remote update -p; git merge --ff-only @{u}"
+  upr = "!uall() { for dir in $(find . -maxdepth 1 -type d | sort); do if [ $dir != "." -a -e "$dir/.git" ]; then echo -n "Update $dir [y/n]? "; read reply; if [ $reply = "y" ]; then cd $dir; git up; cd ..; fi; fi; done }; uall"
+[core]
+  pager =
+	editor = vim
+[color]
+	ui = auto
+[credential]
+	helper = store --file ~/.git-credentials
